@@ -33,7 +33,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   },
   {
     href: 'https://www.linkedin.com/in/bharath-g8',
-    label: 'Linkedin',
+    label: 'LinkedIn',
   },
 ]
 
