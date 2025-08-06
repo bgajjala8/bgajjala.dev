@@ -1,5 +1,3 @@
-<div align="center">
-
 ![Showcase Card](/public/static/homepage.png) 
 
 This is my super minimal blogging website, built with the [astro-erudite](https://github.com/jktrn/astro-erudite.git) [enscribe](https://enscribe.dev/).
