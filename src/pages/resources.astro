@@ -1,0 +1,60 @@
+---
+import Breadcrumbs from '@/components/Breadcrumbs.astro'
+import Link from '@/components/Link.astro'
+import PageHead from '@/components/PageHead.astro'
+import Layout from '@/layouts/Layout.astro'
+
+const resources = [
+  {
+    category: 'Identity & Authentication',
+    items: [
+      {
+        title: 'OpenID Connect - Aggregated & Distributed Claims',
+        href: 'https://openid.net/specs/openid-connect-core-1_0.html#AggregatedDistributedClaims',
+        description: 'OpenID Connect Core 1.0 specification for aggregated and distributed claims.',
+      },
+    ],
+  },
+]
+---
+
+<Layout class="max-w-3xl">
+  <PageHead slot="head" title="Resources" />
+  <Breadcrumbs
+    items={[{ label: 'Resources', icon: 'lucide:bookmark' }]}
+  />
+
+  <section class="flex flex-col gap-y-2">
+    <p class="text-muted-foreground text-sm">
+      A collection of useful resources, specifications, and references I find valuable.
+    </p>
+  </section>
+
+  <div class="flex flex-col gap-y-8 mt-8">
+    {
+      resources.map((section) => (
+        <section class="flex flex-col gap-y-4">
+          <h2 class="text-lg font-medium">{section.category}</h2>
+          <ul class="flex flex-col gap-3">
+            {section.items.map((item) => (
+              <li class="border border-border rounded-lg p-4 hover:bg-muted/50 transition-colors">
+                <Link
+                  href={item.href}
+                  class="text-sm font-medium hover:text-primary transition-colors"
+                  external
+                >
+                  {item.title}
+                </Link>
+                {item.description && (
+                  <p class="text-muted-foreground text-xs mt-1">
+                    {item.description}
+                  </p>
+                )}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+  </div>
+</Layout>

@@ -1,0 +1,51 @@
+---
+import Breadcrumbs from '@/components/Breadcrumbs.astro'
+import Link from '@/components/Link.astro'
+import PageHead from '@/components/PageHead.astro'
+import { NOTES } from '@/consts'
+import Layout from '@/layouts/Layout.astro'
+---
+
+<Layout class="max-w-3xl">
+  <PageHead
+    slot="head"
+    title="Notes"
+    description="A collection of notes and references."
+  />
+  <Breadcrumbs
+    items={[{ label: 'Notes', icon: 'lucide:notebook-pen' }]}
+  />
+
+  <section class="flex flex-col gap-y-2">
+    <p class="text-muted-foreground text-sm">
+      A collection of notes, references, and ideas.
+    </p>
+  </section>
+
+  {
+    NOTES.length > 0 ? (
+      <ul class="mt-8 flex flex-col gap-3">
+        {NOTES.map((note) => (
+          <li class="rounded-lg border border-border p-4 transition-colors hover:bg-muted/50">
+            <Link
+              href={note.href}
+              external={note.external}
+              class="text-sm font-medium hover:text-primary transition-colors"
+            >
+              {note.title}
+            </Link>
+            <div class="mt-1 flex flex-wrap gap-x-2 text-xs text-muted-foreground">
+              <span>{note.source}</span>
+              {note.description && <span>· {note.description}</span>}
+            </div>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="mt-8 rounded-lg border border-dashed border-border p-6 text-sm text-muted-foreground">
+        Notes will appear here once Markdown or public Notion links are added to
+        <code class="text-foreground">src/consts.ts</code>.
+      </p>
+    )
+  }
+</Layout>

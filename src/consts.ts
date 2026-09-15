@@ -1,10 +1,10 @@
-import type { IconMap, SocialLink, Site } from '@/types'
+import type { IconMap, NoteLink, SocialLink, Site } from '@/types'
 
 export const SITE: Site = {
   title: 'Bgajjala',
   description:
     'Hi, I’m Bharath Gajjala. I’m a software engineer focused on distributed systems and building scalable, reliable solutions at the enterprise level. I enjoy solving complex problems that directly affect our quality of life as humans',
-  href: 'bgajjala.dev',
+  href: 'https://bgajjala.dev',
   author: 'bgajjala8',
   locale: 'en-US',
   featuredPostCount: 2,
@@ -16,15 +16,18 @@ export const NAV_LINKS: SocialLink[] = [
     href: '/blog',
     label: 'blog',
   },
+  {
+    href: '/notes',
+    label: 'notes',
+  },
   // {
   //   href: '/authors',
   //   label: 'authors',
   // },
-  // {
-  //   href: '/about',
-  //   label: 'about',
-  // },
 ]
+
+// Add local Markdown routes or public Notion pages here.
+export const NOTES: NoteLink[] = []
 
 export const SOCIAL_LINKS: SocialLink[] = [
   {

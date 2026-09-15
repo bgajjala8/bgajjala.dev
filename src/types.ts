@@ -13,6 +13,14 @@ export type SocialLink = {
   label: string
 }
 
+export type NoteLink = {
+  title: string
+  href: string
+  description?: string
+  source: 'Markdown' | 'Notion'
+  external?: boolean
+}
+
 export type IconMap = {
   [key: string]: string
 }
